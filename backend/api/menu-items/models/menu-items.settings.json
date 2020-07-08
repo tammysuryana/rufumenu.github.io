@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menu_items",
+  "info": {
+    "name": "menu_items"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "menu_items_nama": {
+      "type": "string",
+      "required": true
+    },
+    "menu_items_deskripsi": {
+      "type": "richtext",
+      "required": true
+    },
+    "menu_items_price": {
+      "type": "string"
+    },
+    "menu_items_photo": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "menu_items_available": {
+      "type": "boolean"
+    },
+    "menu_categories": {
+      "via": "menu_items",
+      "collection": "menu-category"
+    }
+  }
+}
